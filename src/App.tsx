@@ -1,9 +1,11 @@
+import ItemList from "./ItemList";
+
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold w-fit mx-auto mt-[50vh]">
-        Hello world
-      </h1>
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <ItemList />
+      </div>
     </>
   );
 }
