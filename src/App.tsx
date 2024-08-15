@@ -16,8 +16,8 @@ function App() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(data => {
-        setItems(data)
-        setFilteredItems(data) // Initially set the filtered items as all items
+        setItems(data as Item[])
+        setFilteredItems(data as Item[]) // Initially set the filtered items as all items
         setTimeout(() => {
           // Temporary gap for the visibility of the loader in development
           setLoading(false)
@@ -40,7 +40,7 @@ function App() {
     <>
       <div className='h-screen bg-background flex max-md:mt-4 md:items-center justify-center'>
         <div className='p-4 space-y-4'>
-          <h1 className='text-2xl font-bold'>Who's secret do you need?</h1>
+          <h1 className='text-2xl font-bold'>Whose secret do you need?</h1>
 
           <div className='relative'>
             <Search className='h-4 w-4 absolute top-1/2 left-4 stroke-muted-foreground transform -translate-y-1/2' />
