@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "./components/ui/card";
 import { Input } from "./components/ui/input";
+import { Separator } from "./components/ui/separator";
+import { Search, User } from "lucide-react";
 
 interface Item {
   id: number;
@@ -42,21 +44,27 @@ const ItemList: React.FC = () => {
   }
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Item List</h1>
-      <Input
-        type="text"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search items..."
-        className="mb-4"
-      />
+    <div className="p-4 space-y-4">
+      <h1 className="text-2xl font-bold">Who's secret do you need?</h1>
+
+      <div className="relative">
+        <Search className="h-4 w-4 absolute top-1/2 left-4 stroke-muted-foreground transform -translate-y-1/2" />
+        <Input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search items..."
+          className="pl-10"
+        />
+      </div>
+
+      <Separator></Separator>
 
       <ul className="space-y-2">
         {filteredItems.length > 0 ? (
           filteredItems.map((item) => (
             <li key={item.id}>
-              <Card className="p-4 font-normal text-lg">{item.name}</Card>
+              <Card className="py-2 px-4 font-normal inline-flex w-full gap-2 items-center"><User className="h-4 w-4 " /> {item.name}</Card>
             </li>
           ))
         ) : (
